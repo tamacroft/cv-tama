@@ -21,14 +21,25 @@
               <span class="title">Skills</span>
             </v-card-title>
            <v-card-text>
-             <div v-for="(item, i) in skills" :key="i">
-               <span>{{item.skill}}</span>
-               <v-progress-linear
-                 color="white"
-                 height="5"
-                 :value="item.value"
-               ></v-progress-linear>
-             </div>
+
+             <v-checkbox
+               v-for="(item,i) in skills"
+               :key="i"
+               :label="item.skill"
+               v-model="item.skill"
+               checked
+               readonly
+               dark
+               color="white"
+             ></v-checkbox>
+             <!--<div v-for="(item, i) in skills" :key="i">-->
+               <!--<span>{{item.skill}}</span>-->
+               <!--<v-progress-linear-->
+                 <!--color="white"-->
+                 <!--height="5"-->
+                 <!--:value="item.value"-->
+               <!--&gt;</v-progress-linear>-->
+             <!--</div>-->
            </v-card-text>
             <v-divider></v-divider>
 
@@ -88,6 +99,11 @@ export default {
     }
 }
 </script>
-<style scoped>
-
+<style>
+  .v-input--selection-controls__ripple{
+    cursor: default
+  }
+  .v-input--selection-controls__input + .v-label{
+    cursor: default;
+  }
 </style>
